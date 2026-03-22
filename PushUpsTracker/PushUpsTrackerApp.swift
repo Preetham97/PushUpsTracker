@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftData
 
 @main
 struct PushUpsTrackerApp: App {
@@ -13,5 +14,6 @@ struct PushUpsTrackerApp: App {
         WindowGroup {
             ContentView()
         }
+        .modelContainer(for: PushUpDay.self)
     }
 }
