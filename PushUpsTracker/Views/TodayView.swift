@@ -48,9 +48,19 @@ struct TodayView: View {
                 Spacer()
 
                 // Buttons
-                HStack(spacing: 40) {
+                HStack(spacing: 20) {
                     Button {
-                        viewModel.subtractPushUp()
+                        viewModel.subtractPushUps(5)
+                    } label: {
+                        Text("-5")
+                            .font(.title2.bold())
+                            .frame(width: 56, height: 56)
+                            .background(.gray.opacity(0.2), in: Circle())
+                    }
+                    .disabled(viewModel.todayCount == 0)
+
+                    Button {
+                        viewModel.subtractPushUps()
                     } label: {
                         Image(systemName: "minus")
                             .font(.title2.bold())

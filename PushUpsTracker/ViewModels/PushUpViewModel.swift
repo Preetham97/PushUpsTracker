@@ -33,9 +33,9 @@ final class PushUpViewModel {
         fetchHistory()
     }
 
-    func subtractPushUp() {
+    func subtractPushUps(_ amount: Int = 1) {
         guard let today, today.count > 0 else { return }
-        today.count -= 1
+        today.count = max(0, today.count - amount)
         try? modelContext.save()
         fetchHistory()
     }
